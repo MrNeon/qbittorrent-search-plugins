@@ -1,9 +1,10 @@
-# VERSION: 1.02
-# AUTHORS: MrNeon
+#VERSION: 1.03
+#AUTHORS: MrNeon
 
 from novaprinter import prettyPrinter
 from helpers import retrieve_url, download_file
 import json
+
 
 class strikesearch(object):
     url = 'https://getstrike.net/'
@@ -26,11 +27,11 @@ class strikesearch(object):
             return
 
         for r in json_dict['torrents']:
-            r_dict = {'link'        : r['magnet_uri'],
-                      'name'        : r['torrent_title'],
-                      'size'        : str(r['size']) + 'B',
-                      'seeds'       : r['seeds'],
-                      'leech'       : r['leeches'],
-                      'desc_link'   : r['page'],
-                      'engine_url'  : self.url}
+            r_dict = {'link': r['magnet_uri'],
+                      'name': r['torrent_title'],
+                      'size': str(r['size']) + 'B',
+                      'seeds': r['seeds'],
+                      'leech': r['leeches'],
+                      'desc_link': r['page'],
+                      'engine_url': self.url}
             prettyPrinter(r_dict)
